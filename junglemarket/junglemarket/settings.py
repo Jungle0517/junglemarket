@@ -76,8 +76,14 @@ WSGI_APPLICATION = 'junglemarket.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'junglemarket',
+        'USER': 'jungle',
+        'PASSWORD': 'jungle',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES' ",
+        'charset': 'utf8mb4',
     }
 }
 
