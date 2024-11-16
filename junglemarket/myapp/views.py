@@ -16,6 +16,11 @@ def index(request):
         productlist.append(product)
     return render(request, 'index.html', locals())
 
+def detail(request, id=None):
+    #return HttpResponse(id)
+    product = ProductModel.objects.get(id = id)
+    return render(request, 'detail.html', locals())
+
 def addtocart(request, type=None, id=None):
     global cartlist
     # add update empty remove
@@ -34,9 +39,6 @@ def addtocart(request, type=None, id=None):
             request.session['cartlist'] = cartlist
             return HttpResponse('已選購商品')
 
-#def detail(request, id=None):
-    #product = ProductModel.objects.get(id = i)
-    #return render(request, 'detail.html', locals())
 
 #def set_cookie(request, key=None, value=None):
     #response = HttpResponse('Cookie OK')
